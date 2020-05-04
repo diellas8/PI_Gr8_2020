@@ -94,7 +94,7 @@
 </fieldset>
 	<button onclick="myRegjistro()" class="regjistro" name = "submit">Regjistrohu</button>
 	<button onclick="myReset()" id="reset" type="reset" name="reset" >Fshij</button>
-	<p style="font-family: Times New Roman; color: white;">Keni llogari? Atehere <a href="login.html" style="text-decoration: none; color: darkblue;"><b>Kyquni/Log IN</b></a></p>
+	<p style="font-family: Times New Roman; color: white;">Keni llogari? Atehere <a href="login.php" style="text-decoration: none; color: darkblue;"><b>Kyquni/Log IN</b></a></p>
 </form>
 </div>
 <script>
