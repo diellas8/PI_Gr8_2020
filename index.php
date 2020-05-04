@@ -62,7 +62,7 @@
 						<li><a href="src/game.html">GAME</a></li>
 						<li><a href="src/team.html">TEAM</a></li>
 						<li><a href="src/gallery.html">GALLERY</a></li>
-						<li><a href="src/contact.html">CONTACT</a></li>
+						<li><a href="src/contact.php">CONTACT</a></li>
 						<li><input class="button" type="submit" name="submit" value="SEARCH"><input type="text" name="searchbox" placeholder="Search Our Website..." ></li>
 					</ul>
 				</nav>
