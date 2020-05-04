@@ -61,7 +61,7 @@
 </section>
 		<div id="form">
 		<h2 style="color: darkblue">R E G J I S T R O H U N I</h2>
-		<form>
+		<form method="POST" action="php/signup.php">
 			<fieldset>
 	<label><strong>Emri: </strong></label><br>
 	<input type="name" name="Emri" placeholder="Shenoni emrin..." required=""><br>
@@ -74,12 +74,12 @@
 	<br><label><strong>Password: </strong></label><br>
 	<input type="password" onclick="myPassword()" name="Password" id="password" placeholder="Shenoni password-in..." required=""><br>
 	<br><label><strong>Data e lindjes: </strong></label><br>
-	<input type="date" name="Data e lindjes"><br><br>
+	<input type="date" name="Data"><br><br>
 	<br><label><strong>Gjinia: </strong></label><br>
-	<input type="radio" name="gjinia" value="Mashkull">M
-	<input type="radio" name="gjinia" value="Femer">F<br>
+	<input type="radio" name="gjinia" value="Male">M
+	<input type="radio" name="gjinia" value="Female">F<br>
 </fieldset>
-	<button onclick="myRegjistro()" class="regjistro">Regjistrohu</button>
+	<button onclick="myRegjistro()" class="regjistro" name = "submit">Regjistrohu</button>
 	<button onclick="myReset()" id="reset" type="reset" name="reset" >Fshij</button>
 	<p style="font-family: Times New Roman; color: white;">Keni llogari? Atehere <a href="login.html" style="text-decoration: none; color: darkblue;"><b>Kyquni/Log IN</b></a></p>
 </form>
