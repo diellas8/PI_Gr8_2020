@@ -12,10 +12,7 @@ if(!$connection)
 {
     die("Error! Could not connect to database." . mysqli_connect_error());
 }
-else
-{
-    echo"Connected to database successfully.";
-}
+
 
 
 
