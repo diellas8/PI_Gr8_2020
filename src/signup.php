@@ -69,7 +69,7 @@
 </style>
 <body>
 	<section>
-	<a href="../index.html" style="text-decoration: none; color: orange;"><p style="border: 2px solid red; display: inline-block;"><b>&#171; Kthehu ne faqen kryesore</b></p></a>
+	<a href="../index.php" style="text-decoration: none; color: orange;"><p style="border: 2px solid red; display: inline-block;"><b>&#171; Kthehu ne faqen kryesore</b></p></a>
 </section>
 		<div id="form">
 		<h2 style="color: darkblue">R E G J I S T R O H U N I</h2>
