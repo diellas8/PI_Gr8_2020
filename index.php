@@ -28,14 +28,17 @@
 			<nav>
 				<h1 id="logo">CONCOMITANT</h1>
 					<?php if(isset($_SESSION['success']) and isset($_SESSION['username'])){ ?>
-					<div class="success">
-						<p>
+					<div class="success" style="background-color:#b2d8b2 ; font-size:1.5em; ">
+						<p style="display: inline; margin-left:5%;">
 							<?php echo $_SESSION['success'];
 								unset($_SESSION['success']); ?>
-								Welcome <strong><?php echo $_SESSION['username']?></strong>	
+									
 						</p>
-						<p>
-							<a href="index.php?logout='1'" style="color:red">Log Out</a>
+						<p style="display:inline; margin-left:20%;"> 
+						Welcome <strong><?php echo $_SESSION['username']?></strong>
+						</p>
+						<p style="display: inline; margin-left:20%;">
+							<a href="index.php?logout='1'" style="color:red; margin-left:32px;">Log Out</a>
 						</p>
 					</div>
 					<?php } ?>
