@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+</head>
+<style>
+	body
+	{
+		background-image: url(../foto/signup.jpg);
+		font-family: Arial, Helvetica, sans-serif;
+		box-sizing: border-box;
+	}
+
+	div#form
+	{
+		margin: 5em 0em 0em 30em;
+		display: inline-block;
+		text-align: center;
+		background-color: rgba(0,0,0,0.3);
+		border-radius: 20px;
+		width: 400px;
+		height: 680px;
+
+	}
+	div input
+	{
+		border-radius: 5px;
+		padding: 0.5em;
+	}
+	button#reset
+	{
+		background-color: red;
+		color: white;
+		width: 100px;
+		height: 50px;
+		border: none;
+		margin-top: 20px;
+	}
+	div input#reset:hover
+	{
+		background-color: darkred;
+		transition: 0.6s;
+	}
+	.regjistro
+	{
+		background-color: green;
+		color:white;
+		border:none;
+		width: 100px;
+		height: 50px;
+	}
+	.regjistro:hover
+	{
+		background-color: darkgreen;
+		transition: 0.5s;
+	}
+
+
+	.errors {
+  width: 82%; 
+  margin: 0px auto; 
+  padding: 5px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+}
+</style>
+<body>
+	<section>
+	<a href="../index.html" style="text-decoration: none; color: orange;"><p style="border: 2px solid red; display: inline-block;"><b>&#171; Kthehu ne faqen kryesore</b></p></a>
+</section>
+		<div id="form">
+		<h2 style="color: darkblue">R E G J I S T R O H U N I</h2>
+		<form method="POST" action="signup.php">
+			<fieldset>
+	        <?php include("php/errors.php"); ?>	
+	<label><strong>Emri: </strong></label><br>
+	<input type="name" name="Emri" placeholder="Shenoni emrin..." required=""><br>
+	<br><label><strong>Mbiemri: </strong></label><br>
+	<input type="surname" name="Mbiemri" placeholder="Shenoni mbiemrin..." required=""><br>
+	<br><label><strong>Username: </strong></label><br>
+	<input type="Username" name="Username" placeholder="Shenoni username..." required=""><br>
+	<br><label><strong>E-mail: </strong></label><br>
+	<input type="email" name="E-mail" placeholder="Shenoni email-in..." required=""><br>
+	<br><label><strong>Password: </strong></label><br>
+	<input type="password" onclick="myPassword()" name="Password" id="password" placeholder="Shenoni password-in..." required=""><br>
+	<br><label><strong>Data e lindjes: </strong></label><br>
+	<input type="date" name="Data"><br><br>
+	<br><label><strong>Gjinia: </strong></label><br>
+	<input type="radio" name="gender" value="Male" checked>M
+	<input type="radio" name="gender" value="Female">F<br>
+</fieldset>
+	<button onclick="myRegjistro()" class="regjistro" name = "submit">Regjistrohu</button>
+	<button onclick="myReset()" id="reset" type="reset" name="reset" >Fshij</button>
+	<p style="font-family: Times New Roman; color: white;">Keni llogari? Atehere <a href="login.html" style="text-decoration: none; color: darkblue;"><b>Kyquni/Log IN</b></a></p>
+</form>
+</div>
+<script>
+	function myPassword() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+	function myRegjistro() {
+	alert("Falemnderit qe u regjistruat ne faqen tone <3");
+}
+	function myReset()
+	{
+	 	alert("Te dhenat jane fshire!");
+	}
+</script>
+
+</body>
+</html>
