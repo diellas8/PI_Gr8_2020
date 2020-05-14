@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CoVid-19 API</title>
+    <style>
+        body{
+            font-family: arial;
+            background-image: url("https://www.impactoneducation.org/wp-content/uploads/2020/03/coronavirus-image.png");
+        }
+    </style>
+</head>
+<body>
+    <marquee><h1 style="font-family: Arial;">TABELAT E STATISTIKAVE TE PANDEMISE CoVid-19</h1></marquee>
+    <table width="500px" border="1px" cellspacing="0" cellpadding="8px" align="center">
+        <tr>
+            <td colspan="2" bgcolor="grey" align="center"><h2>Te dhenat ne bote</h2></td>
+        </tr>
+        <tbody id="bota" bgcolor="red"></tbody>
+    </table>
+    <br>
+    <table width="60%" border="2px" cellspacing="0" cellpadding="8px" align="center">
+        <tr>
+            <td colspan="2" bgcolor="grey" align="center"><h2>Vendet</h2></td>
+            <td colspan="6" align="center" bgcolor="grey"><h2>Statistikat</h2></td>
+        </tr>
+        <br>
+        <tr>
+            <th bgcolor="yellow">ID</th>
+            <th bgcolor="yellow">Shteti</th>
+            <th bgcolor="lightgrey">Total te konfirmuara</th>
+            <th bgcolor="green">Total te sheruar</th>
+            <th bgcolor="red">Total te vdekur</th>
+            <th bgcolor="grey">Raste te reja</th>
+            <th bgcolor="lightgreen">Sherime te reja</th>
+            <th bgcolor="darkred">Vdekje te reja</th>
+        </tr>
+        <tbody id="shtetet"></tbody>
+    </table>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">    
+    $.ajax({
+        url : "https://api.covid19api.com/summary",
+        type : "GET",
+        dataType : "JSON",
+        success : function(data){
+            console.log(data);
+            console.log(data.Countries[135]);
+
+            $.each(data.Global, function(key, value){
+                $("#bota").append("<tr><td align='center' bgcolor='lightblue'>" + key +"</td><td align='center' bgcolor='lightgreen'>"+ value +"</td></tr>")
+            });
+            
+            var id = 1;
+
+            $.each(data.Countries, function(key, value){
+                $("#shtetet").append("<tr>" + 
+                                        "<td bgcolor='yellow' align='center'>" + id +"</td>" +
+                                        "<td bgcolor='yellow' align='center'>" + value.Country +"</td>" +
+                                        "<td bgcolor='lightgrey' align='center'>" + value.TotalConfirmed +"</td>" +
+                                        "<td bgcolor='green' align='center'>" + value.TotalRecovered +"</td>" +
+                                        "<td bgcolor='red' align='center'>" + value.TotalDeaths +"</td>" +
+                                        "<td bgcolor='grey' align='center'>" + value.NewConfirmed +"</td>" +
+                                        "<td bgcolor='lightgreen' align='center'>" + value.NewRecovered +"</td>" +
+                                        "<td bgcolor='darkred' align='center'>" + value.NewDeaths +"</td>" +
+                                        "</tr>");
+        
+                 id++
+
+        });
+    }
+    });
+    </script>
+</body>
+</html>
