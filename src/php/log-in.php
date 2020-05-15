@@ -1,46 +1,74 @@
 <?php 
 require_once("mysql_conncect.php");
-session_start();
-$errors = array();
 if (isset( $_POST["Submit"] ))
 {
 
-$username = mysqli_escape_string($connection, $_POST["Username"]);
-$password = mysqli_escape_string($connection, $_POST["Password"]);
+$username_or_email =  $_POST["Username"];
+$password =  $_POST["Password"];
 
 
 
-if(empty($username)){
-    array_push($errors, "Username is required");
-}
-if(empty($password)){
-    array_push($errors, "Password is required");
+if(empty($username_or_email) || empty($password)){
+    header("location: ../login.php?error=emptyfields");
+    exit();
 }
 
-if(count($errors) == 0){
-    $password = md5($password);
 
-    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-    $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) == 1){
+    $password;
+    $query = "SELECT * FROM users WHERE username=? OR email=?";
+    $statement = mysqli_stmt_init($connection);
+    if(!mysqli_stmt_prepare($statement, $query)){
+        header("location: ../login.php?error=sqlerror");
+        exit();
+     }
+    else {
+        mysqli_stmt_bind_param($statement, "ss", $username_or_email, $username_or_email);
+        mysqli_stmt_execute($statement);
+        $result = mysqli_stmt_get_result($statement);
+        if($row = mysqli_fetch_assoc($result)){
+            $passwordCheck = password_verify($password, $row["password"]);
+            if($passwordCheck == false){
+                header("location: ../login.php?error=wrongpwd");
+                exit();
+            }
+            else if ($passwordCheck == true){
+                session_start();
+                $_SESSION['username'] = $row["username"];
+                $_SESSION['success'] = "You are now logged in.";
+                header('location: ../../index.php?login=success');
+                exit();
 
-        $_SESSION['username'] = $username;
-        $_SESSION['success'] = "You are now logged in.";
-        header('location: ../index.php');
+            }
+            else {
+                header("location: ../login.php?error=sqlierror");
+                exit();
+
+            }
+        }
+        else {
+            header("location: ../login.php?error=nouser");
+            exit();
+        
+        }
+
     }
-    else {array_push($errors, "Wrong username/password");}
+ 
+ 
     
 
+
+
+mysqli_stmt_close($statement);
+mysqli_close($connection);
+
+
 }
+else {
+    header("location: ../login.php");
+    exit();
+
 }
 
-if(isset($_GET['logout'])){
-    session_destroy();
-    unset($_SESSION['username']);
-    header('location: index.php');
-}
 
 
 
-
-?>

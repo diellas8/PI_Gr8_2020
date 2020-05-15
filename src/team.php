@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -28,10 +29,28 @@
 		<section>
 			<nav>
 				<h1>CONCOMITANT</h1>
+				<?php if(isset($_SESSION['success']) and isset($_SESSION['username'])){ ?>
+					<div class="success" style="background-color:#b2d8b2 ; font-size:1.5em; ">
+						<p style="display: inline; margin-left:5%;">
+							<?php echo $_SESSION['success'];?>
+									
+						</p>
+						<p style="display:inline; margin-left:20%;"> 
+						Welcome <strong><?php echo $_SESSION['username']?></strong>
+						</p>
+						<p style="display: inline; margin-left:20%;">
+							<a href="team.php?logout='1'" style="color:red; margin-left:32px;">Log Out</a>
+							<?php if(isset($_GET["logout"])){ unset($_SESSION["success"]); unset($_SESSION['username']);
+							header("location: team.php");}?>
+						</p>
+					</div>
+					<?php } ?>
 				<div class="topmenu">
 					<ul>
-						<li><a href="../src/signup.html">Sign Up |</a></li>
-						<li><a href="../src/login.php">Login |</a></li>
+					<?php if(!(isset($_SESSION['success']) and isset($_SESSION['username']))){ ?>
+						<li><a href="src/signup.php">Sign Up |</a></li>
+						<li><a href="src/login.php">Login |</a></li>
+						<?php } ?>
 						<li><a href="#">RSS Feeds |</a></li>
 						<li><a href="#">Archived News</a></li>
 					</ul>
@@ -42,10 +61,10 @@
 			<nav>
 				<ul class="mainmenu">
 					<li><a href="../index.php">HOMEPAGE</a></li>
-					<li><a href="./about.html">ABOUT</a></li>
-					<li><a href="./game.html">GAME</a></li>
+					<li><a href="./about.php">ABOUT</a></li>
+					<li><a href="./game.php">GAME</a></li>
 					<li><a href="./team.php">TEAM</a></li>
-					<li><a href="../src/gallery.html">GALLERY</a></li>
+					<li><a href="../src/gallery.php">GALLERY</a></li>
 					<li><a href="../src/contact.php">CONTACT</a></li>
 					<li><input class="button" type="submit" name="submit" value="SEARCH"><input type="text"
 							name="searchbox" placeholder="Search Our Website..."></li>

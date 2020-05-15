@@ -1,4 +1,4 @@
-<?php include("src/php/log-in.php"); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +30,7 @@
 					<?php if(isset($_SESSION['success']) and isset($_SESSION['username'])){ ?>
 					<div class="success" style="background-color:#b2d8b2 ; font-size:1.5em; ">
 						<p style="display: inline; margin-left:5%;">
-							<?php echo $_SESSION['success'];
-								unset($_SESSION['success']); ?>
+							<?php echo $_SESSION['success'];?>
 									
 						</p>
 						<p style="display:inline; margin-left:20%;"> 
@@ -39,13 +38,17 @@
 						</p>
 						<p style="display: inline; margin-left:20%;">
 							<a href="index.php?logout='1'" style="color:red; margin-left:32px;">Log Out</a>
+							<?php if(isset($_GET["logout"])){ unset($_SESSION["success"]); unset($_SESSION['username']);
+							header("location: index.php");}?>
 						</p>
 					</div>
 					<?php } ?>
 					<div class="topmenu">
 					<ul>
+					<?php if(!(isset($_SESSION['success']) and isset($_SESSION['username']))){ ?>
 						<li><a href="src/signup.php">Sign Up |</a></li>
 						<li><a href="src/login.php">Login |</a></li>
+						<?php } ?>
 						<li><a href="#">RSS Feeds |</a></li>
 						<li><a href="#">Archived News</a></li>
 					</ul>
@@ -58,10 +61,10 @@
 				<nav>
 					<ul class="mainmenu">
 						<li><a href="#">HOMEPAGE</a></li>
-						<li><a href="src/about.html">ABOUT</a></li>
-						<li><a href="src/game.html">GAME</a></li>
-						<li><a href="src/team.html">TEAM</a></li>
-						<li><a href="src/gallery.html">GALLERY</a></li>
+						<li><a href="src/about.php">ABOUT</a></li>
+						<li><a href="src/game.php">GAME</a></li>
+						<li><a href="src/team.php">TEAM</a></li>
+						<li><a href="src/gallery.php">GALLERY</a></li>
 						<li><a href="src/contact.php">CONTACT</a></li>
 						<li><input class="button" type="submit" name="submit" value="SEARCH"><input type="text" name="searchbox" placeholder="Search Our Website..." ></li>
 					</ul>
@@ -80,7 +83,7 @@
 
 						<div class="mySlides fade">
 
-						  <img src="foto/windmill.jpg" >
+						  <img src="foto/41302.jpg" >
 						</div>
 						
 						<div class="mySlides fade">
@@ -146,12 +149,12 @@ function topFunction() {
 				</td>
 				<td>
 					<legend>Vivamuslibero Augue</legend>
-					<img src="foto/world.png">
+					<img src="foto/leaf.png">
 					<p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</p>
 				</td>
 				<td>
 					<legend>Vivamuslibero Augue</legend>
-					<img src="foto/leaf.png">
+					<img src="foto/social.png">
 					<p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</p>
 				</td>
 				<td>
@@ -168,7 +171,7 @@ function topFunction() {
 		<table class="botmesi">
 			<tr>
 				<td>
-					<img src="foto/wind.jpg" width="200px" height="130px">
+					<img src="foto/signup.jpg" width="200px" height="130px">
 					<legend>Energjia e ripertritshme</legend>
 					<p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</p>
 						<a href="#">View Details >></a>

@@ -1,3 +1,4 @@
+<?php include("php/mail.php");?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,14 +19,18 @@
 
 
         <div calss="title">
-            <h1 style="color: white;">CONTACT US</h1>
+            <h1 style="color: white;">CONTACT US <?php 
+            if(isset($_SESSION["success"]))
+            {
+              echo $_SESSION["username"];}
+              ?></h1>
             <h2 style="color:white">WE ARE READY TO LEAD YOU TO THE FUTURE</h2>
         </div>
 
         <div class="box">
             <form method="POST" action="contact.php">
-              <?php include("php/mail.php");
-              if(isset($_SESSION['success'])){
+     
+      <?php         if(isset($_SESSION['sent'])){
                ?>
                <p style="color:white"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></p>
               <?php } ?>

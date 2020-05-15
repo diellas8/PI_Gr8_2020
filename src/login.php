@@ -72,17 +72,28 @@
 <body>
 <a href="../index.php" style="text-decoration: none;color: red;"><p><strong>&#171;Kthehu ne faqen kryesore</strong></p></a>
 <div id="login-form">
-	<form name="loginf" onsubmit="return validoFormen()" method="post" action="login.php">
-	<?php require_once("php/log-in.php")?>
-
+	<form name="loginf" onsubmit="return validoFormen()" method="post" action="php/log-in.php">
 		<h2>Kyquni/LOG IN</h2>
-		<fieldset style="padding: 1em 2em 1em 2em">
-		<?php if(count($errors) > 0){
-			echo "<div class = \"errors\">";
-			foreach($errors as $error){
-				echo "<p>$error</p>";
+		<?php if(isset($_GET["error"])){
+			if (strpos($_GET["error"],"emptyfields")){
+				echo "<p  class = \"errors\">Please fill in all the fields! </p>";
 			}
-			echo "</div>";} ?>
+			else if (strpos($_GET["error"], "sqlerror")){
+				echo "<p  class = \"errors\">We are having problems. Please try again later! </p>";
+			}
+			else if (strpos($_GET["error"],"wrongpwd")){
+				echo "<p  class = \"errors\">Wrong password!</p>";
+			}
+			else if (strpos($_GET["error"], "nouser")){
+				echo "<p  class = \"errors\">No such user in our database!</p>";
+			}
+			else {
+				echo "<p  class = \"errors\">We are having problems. Please try again later!</p>";
+			}
+			
+		} ?>
+		<fieldset style="padding: 1em 2em 1em 2em">
+		
 			<legend><img src="../foto/login.png" style="width: 80px; height: 80px;"></img></legend>
 			<label style="color: lightgrey"><b>Username: </b></label><br>
 			<input type="username" name="Username" placeholder="Username" ><br>

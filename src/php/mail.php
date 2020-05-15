@@ -21,7 +21,7 @@ $mail->Body = "We got your message saying ' $message '. We will respond soon.\n 
 $mail->addAddress($send_to);
 $result = $mail->send();
 if($result){
-    $_SESSION['success'] = "Message sent!";
+    $_SESSION['sent'] = "Message sent!";
 
 }
 

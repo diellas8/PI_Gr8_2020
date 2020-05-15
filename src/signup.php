@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,9 +74,43 @@
 </section>
 		<div id="form">
 		<h2 style="color: darkblue">R E G J I S T R O H U N I</h2>
-		<form method="POST" action="signup.php">
+		<?php if(isset($_GET["error"])){
+			if (strpos($_GET["error"], "invalidname")===0){
+				echo "<p  class = \"errors\">Name field should contain only characters and whitespaces! </p>";
+			}
+			else if (strpos($_GET["error"], "invalidlastname")===0){
+				echo "<p  class = \"errors\">Name field should contain only characters and whitespaces! </p>";
+			}
+			else if (strpos($_GET["error"], "invalidusername")===0){
+				echo "<p  class = \"errors\">Please write a valid username</p>";
+			}
+			else if (strpos($_GET["error"], "invalidemail")===0){
+				echo "<p  class = \"errors\">Please write a valid email </p>";
+			}
+			else if (strpos($_GET["error"], "invalidpwd")===0){
+				echo "<p  class = \"errors\">Password should be longer than 8 characters but not more than 30. Should have at least one capitalized letter, at least one number and at least one symbol! </p>";
+			}
+			else if (strpos($_GET["error"], "invalidinputs")===0){
+				echo "<p  class = \"errors\">Please fill out the form properly! </p>";
+			}
+			else if (strpos($_GET["error"], "pwdmatch")===0){
+				echo "<p  class = \"errors\">Password doesn't match!</p>";
+			}
+			else if (strpos($_GET["error"], "usrtaken")===0){
+				echo "<p  class = \"errors\">That username is taken! </p>";
+			}
+			else if (strpos($_GET["error"], "sqlerror")===0){
+				echo "<p  class = \"errors\">Can't connect to our database. Try again later! </p>";
+			}
+			else {
+				echo "<p  class = \"errors\">We are having problems. Try again later! </p>";
+			}
+			
+		
+		} ?>
+		<form method="POST" action="php/sign-up.php">
 			<fieldset>
-	        <?php include("php/errors.php"); ?>	
+	       
 	<label><strong>Emri: </strong></label><br>
 	<input type="name" name="Emri" placeholder="Shenoni emrin..." required=""><br>
 	<br><label><strong>Mbiemri: </strong></label><br>
@@ -86,13 +121,15 @@
 	<input type="email" name="E-mail" placeholder="Shenoni email-in..." required=""><br>
 	<br><label><strong>Password: </strong></label><br>
 	<input type="password" onclick="myPassword()" name="Password" id="password" placeholder="Shenoni password-in..." required=""><br>
+	<br><label><strong>Confirm password: </strong></label><br>
+	<input type="confirm_password" onclick="myPassword()" name="Cpassword" id="cpassword" placeholder="Shenoni password-in perseri" required=""><br>
 	<br><label><strong>Data e lindjes: </strong></label><br>
 	<input type="date" name="Data"><br><br>
 	<br><label><strong>Gjinia: </strong></label><br>
 	<input type="radio" name="gender" value="Male" checked>M
 	<input type="radio" name="gender" value="Female">F<br>
 </fieldset>
-	<button onclick="myRegjistro()" class="regjistro" name = "submit">Regjistrohu</button>
+	<button class="regjistro" name = "submit">Regjistrohu</button>
 	<button onclick="myReset()" id="reset" type="reset" name="reset" >Fshij</button>
 	<p style="font-family: Times New Roman; color: white;">Keni llogari? Atehere <a href="login.php" style="text-decoration: none; color: darkblue;"><b>Kyquni/Log IN</b></a></p>
 </form>
@@ -107,9 +144,7 @@
   }
 }
 
-	function myRegjistro() {
-	alert("Falemnderit qe u regjistruat ne faqen tone <3");
-}
+
 	function myReset()
 	{
 	 	alert("Te dhenat jane fshire!");
