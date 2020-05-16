@@ -1,15 +1,3 @@
-<?php 
-
-$cookie_name = "personi";
-$cookie_value = "101";
-setcookie($cookie_name, $cookie_value, time()+ 86400*15, "/");
-$remember="";
-	if ($remember=='yes') {
-	$this->load->helper('cookie'); 
-	$cookie =array( 'name' => $cookie_name, 'value' => $cookie_value, 'expire' => '86400*15' ); 
-        $this->input->set_cookie($cookie); 
-		}	
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,9 +96,9 @@ $remember="";
 		
 			<legend><img src="../foto/login.png" style="width: 80px; height: 80px;"></img></legend>
 			<label style="color: lightgrey"><b>Username: </b></label><br>
-			<input type="username" name="Username" placeholder="Username" ><br>
+			<input type="username" name="Username" value="<?php if(isset($_COOKIE["personi"])){echo $_COOKIE["Username"];} ?>" placeholder="Username"><br>
 			<label style="color: lightgrey;"><b>Password: </b></label><br>
-			<input type="Password" name="Password" placeholder="Password" ><br>
+                        <input type="Password" name="Password" placeholder="Password" value="<?php if(isset($_COOKIE["personi"])){echo $_COOKIE["password"];} ?>"
 			<input type="checkbox" name="setcookie" value="setcookie">Remember Me<br>
 
 			<br><button onclick="validoFormen()" id="login" name = "Submit">Kyçuni</button>
