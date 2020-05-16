@@ -1,32 +1,14 @@
-<?php
-session_start();
-require("php/mysql_conncect.php");
- 
-if(isset($_POST['login']))
-{
-    if($username){
-        if(!empty ($_POST['remember']))
-        {
-            setcookie("username",$_POST['username'], time()+(10*365*24*60*60));
-            setcookie("Password",$_POST["Password"], time()+(10*365*24*60*60));
-        }
-        else
-        {
-            if(isset($_COOKIE["username"]))
-            {
-                setcookie ("username","");
-            }
-            if(isset($_COOKIE["Password"]))
-            {
-                setcookie ("Password","");
-            }
-            header("location:index.php");
- 
-        }
-       
-    }
-}
- 
+<?php 
+
+$cookie_name = "personi";
+$cookie_value = "101";
+setcookie($cookie_name, $cookie_value, time()+ 86400*15, "/");
+$remember="";
+	if ($remember=='yes') {
+	$this->load->helper('cookie'); 
+	$cookie =array( 'name' => $cookie_name, 'value' => $cookie_value, 'expire' => '86400*15' ); 
+        $this->input->set_cookie($cookie); 
+		}	
 ?>
 <!DOCTYPE html>
 <html>
