@@ -111,6 +111,8 @@ $remember="";
 			<input type="username" name="Username" placeholder="Username" ><br>
 			<label style="color: lightgrey;"><b>Password: </b></label><br>
 			<input type="Password" name="Password" placeholder="Password" ><br>
+			<input type="checkbox" name="setcookie" value="setcookie">Remember Me<br>
+
 			<br><button onclick="validoFormen()" id="login" name = "Submit">Kyçuni</button>
 		</fieldset>
 		<br><p style="color: white; margin-left: 40px;">Nuk keni llogari? Atehere <a href="signup.php" style="text-decoration: none; color: red; text-align: center;">Regjistrohuni</a></p>
