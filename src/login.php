@@ -1,15 +1,4 @@
-<?php 
 
-$cookie_name = "personi";
-$cookie_value = "101";
-setcookie($cookie_name, $cookie_value, time()+ 86400*15, "/");
-$remember="";
-	if ($remember=='yes') {
-	$this->load->helper('cookie'); 
-	$cookie =array( 'name' => $cookie_name, 'value' => $cookie_value, 'expire' => '86400*15' ); 
-        $this->input->set_cookie($cookie); 
-		}	
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,16 +76,16 @@ $remember="";
 	<form name="loginf" onsubmit="return validoFormen()" method="post" action="php/log-in.php">
 		<h2>Kyquni/LOG IN</h2>
 		<?php if(isset($_GET["error"])){
-			if (strpos($_GET["error"],"emptyfields")){
+			if ($_GET["error"]=="emptyfields"){
 				echo "<p  class = \"errors\">Please fill in all the fields! </p>";
 			}
-			else if (strpos($_GET["error"], "sqlerror")){
+			else if ($_GET["error"]=="sqlerror"){
 				echo "<p  class = \"errors\">We are having problems. Please try again later! </p>";
 			}
-			else if (strpos($_GET["error"],"wrongpwd")){
+			else if ($_GET["error"]=="wrongpwd"){
 				echo "<p  class = \"errors\">Wrong password!</p>";
 			}
-			else if (strpos($_GET["error"], "nouser")){
+			else if ($_GET["error"]== "nouser"){
 				echo "<p  class = \"errors\">No such user in our database!</p>";
 			}
 			else {
@@ -108,9 +97,9 @@ $remember="";
 		
 			<legend><img src="../foto/login.png" style="width: 80px; height: 80px;"></img></legend>
 			<label style="color: lightgrey"><b>Username: </b></label><br>
-			<input type="username" name="Username" placeholder="Username" ><br>
+			<input type="username" name="Username" value="<?php if(isset($_COOKIE["personi"])){echo $_COOKIE["personi"];} ?>" placeholder="Username" ><br>
 			<label style="color: lightgrey;"><b>Password: </b></label><br>
-			<input type="Password" name="Password" placeholder="Password" ><br>
+			<input type="Password" name="Password" placeholder="Password" value = "<?php if(isset($_COOKIE["personi"])){echo $_COOKIE["password"];} ?>"><br>
 			<input type="checkbox" name="setcookie" value="setcookie">Remember Me<br>
 
 			<br><button onclick="validoFormen()" id="login" name = "Submit">Kyçuni</button>

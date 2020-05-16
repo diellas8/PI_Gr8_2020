@@ -1,8 +1,10 @@
-<?php session_start(); ?>
+
+<?php session_start();
+define("LOGO", "CONCOMITANT"); ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CONCOMITANT</title>
+	<title><?php echo LOGO;?></title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/header.css">
@@ -26,7 +28,7 @@
 			<section>
 				
 			<nav>
-				<h1 id="logo">CONCOMITANT</h1>
+				<h1 id="logo"><?php echo LOGO;?></h1>
 					<?php if(isset($_SESSION['success']) and isset($_SESSION['username'])){ ?>
 					<div class="success" style="background-color:#b2d8b2 ; font-size:1.5em; ">
 						<p style="display: inline; margin-left:5%;">

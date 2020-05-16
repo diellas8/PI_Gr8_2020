@@ -1,9 +1,10 @@
-<?php session_start(); ?>
+<?php session_start();
+define("LOGO","CONCOMITANT" ); ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>CONCOMITANT</title>
+	<title>Team</title>
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">
 	<link rel="stylesheet" href="../css/header.css">
 	<link rel="stylesheet" href="../css/mainTeam.css">
@@ -28,7 +29,7 @@
 		</section>
 		<section>
 			<nav>
-				<h1>CONCOMITANT</h1>
+				<h1><?php echo LOGO;?></h1>
 				<?php if(isset($_SESSION['success']) and isset($_SESSION['username'])){ ?>
 					<div class="success" style="background-color:#b2d8b2 ; font-size:1.5em; ">
 						<p style="display: inline; margin-left:5%;">
@@ -102,7 +103,15 @@ $noraB = new student("170714100032","Noraberisha@gmail.com","Nora Berisha");
 $diellaS = new student("170714100033","Diellasimnica@gmail.com","Diella Simnica");
 
 ?>
-		<div class='developer dev1'>
+	
+	<div style=" display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	align-content: center; ">
+			<div class='developer dev1'>
 			<h2><?php echo $endritM->get_name(); ?> </h2>
 			<br><img src="../foto/maleAvatar.png" alt="Smiley face" height="100" width="100"></br>
 			<h3><?php echo $endritM->get_id(); echo "<br />"; ?></h3>
@@ -115,6 +124,7 @@ $diellaS = new student("170714100033","Diellasimnica@gmail.com","Diella Simnica"
 			<h3><?php echo $endritB->get_id(); echo "<br />"; ?></h3>
 			<p><?php echo $endritB->get_email(); ?></p>
 		</div>
+
 
 		<div class='developer dev3'>
 			<h2><?php echo $noraB->get_name(); ?> </h2>
@@ -131,7 +141,7 @@ $diellaS = new student("170714100033","Diellasimnica@gmail.com","Diella Simnica"
 			<h3><?php echo $diellaS->get_id(); echo "<br />"; ?></h3>
 			<p><?php echo $diellaS->get_email(); ?></p>
 		</div>
-
+	</div>
 
 	</div>
 
@@ -160,7 +170,7 @@ $diellaS = new student("170714100033","Diellasimnica@gmail.com","Diella Simnica"
 					<legend>FROM THE BLOG</legend>
 					<h4>Blog Post Title</h4>
 					<p>Posted by Admin on 00.00.0000</p>
-					<p>ndmd,ngfdng df sjkgfjg sjkdfgsd bkkbf</p>
+					<p>Lorem ipsum dolor sit amet.</p>
 					<a href="#">Read More>></a>
 				</td>
 				<td>

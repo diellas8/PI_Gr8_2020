@@ -112,19 +112,19 @@
 			<fieldset>
 	       
 	<label><strong>Emri: </strong></label><br>
-	<input type="name" name="Emri" placeholder="Shenoni emrin..." required=""><br>
+	<input type="name" name="Emri" value= "<?php if(isset($_GET["Emri"])){echo $_GET["Emri"];} ?>"placeholder="Shenoni emrin..." required=""><br>
 	<br><label><strong>Mbiemri: </strong></label><br>
-	<input type="surname" name="Mbiemri" placeholder="Shenoni mbiemrin..." required=""><br>
+	<input type="surname" name="Mbiemri"  value= "<?php if(isset($_GET["Mbiemri"])){echo $_GET["Mbiemri"];} ?>" placeholder="Shenoni mbiemrin..." required=""><br>
 	<br><label><strong>Username: </strong></label><br>
-	<input type="Username" name="Username" placeholder="Shenoni username..." required=""><br>
+	<input type="Username" name="Username"  value= "<?php if(isset($_GET["Username"])){echo $_GET["Username"];} ?>" placeholder="Shenoni username..." required=""><br>
 	<br><label><strong>E-mail: </strong></label><br>
-	<input type="email" name="E-mail" placeholder="Shenoni email-in..." required=""><br>
+	<input type="email" name="E-mail"  value= "<?php if(isset($_GET["E-mail"])){echo $_GET["E-mail"];} ?>" placeholder="Shenoni email-in..." required=""><br>
 	<br><label><strong>Password: </strong></label><br>
 	<input type="password" onclick="myPassword()" name="Password" id="password" placeholder="Shenoni password-in..." required=""><br>
 	<br><label><strong>Confirm password: </strong></label><br>
 	<input type="confirm_password" onclick="myPassword()" name="Cpassword" id="cpassword" placeholder="Shenoni password-in perseri" required=""><br>
 	<br><label><strong>Data e lindjes: </strong></label><br>
-	<input type="date" name="Data"><br><br>
+	<input type="date"  value= "<?php if(isset($_GET["Data"])){echo $_GET["Data"];} ?>" name="Data"><br><br>
 	<br><label><strong>Gjinia: </strong></label><br>
 	<input type="radio" name="gender" value="Male" checked>M
 	<input type="radio" name="gender" value="Female">F<br>

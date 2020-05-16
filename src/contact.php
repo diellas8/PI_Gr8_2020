@@ -1,4 +1,4 @@
-<?php include("php/mail.php");?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +28,7 @@
         </div>
 
         <div class="box">
-            <form method="POST" action="contact.php">
+            <form method="POST" action="php/mail.php">
      
       <?php         if(isset($_SESSION['sent'])){
                ?>
@@ -37,7 +37,7 @@
                 <input type="text" name="name" class="form-control" placeholder="Enter your name" required><br>
                 <input type="email" name="email" class="form-control" placeholder="Enter your email" required><br>
                 <textarea name="message" name="message" class="form-control" placeholder="Message" rows="4" required></textarea><br>
-                <button type="submit" name="submit" class="form-control submit" >SEND MESSAGE</button>
+                <button type="submit" name="button" class="form-control submit" >SEND MESSAGE</button>
                 
             </form>
         </div>

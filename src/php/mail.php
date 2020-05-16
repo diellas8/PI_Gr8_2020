@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("PHPMailer/PHPMailerAutoload.php");
-if(isset($_POST['submit'])){
+if(isset($_POST['button'])){
     $send_to = $_POST['email'];
     $message = $_POST['message'];
 
@@ -21,10 +21,11 @@ $mail->Body = "We got your message saying ' $message '. We will respond soon.\n 
 $mail->addAddress($send_to);
 $result = $mail->send();
 if($result){
+    echo "sent";
     $_SESSION['sent'] = "Message sent!";
 
 }
-
+header("Location: ../contact.php");
 
 }
 
