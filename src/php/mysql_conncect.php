@@ -5,12 +5,11 @@ $username = "root";
 $password = "";
 $database = "login";
 
-
+try {
 $connection = mysqli_connect($servername, $username, $password, $database);
-
-if(!$connection)
-{
-    die("Error! Could not connect to database." . mysqli_connect_error());
+}
+catch (mysqli_sql_exception $e){
+    die("Could not connect to database");
 }
 
 

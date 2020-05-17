@@ -7,7 +7,7 @@ if(isset($_POST["submit"])){
     $name = $_POST["Emri"];
     $last_name = $_POST["Mbiemri"];
     $username = $_POST["Username"];
-    $email = $_POST["E-mail"];
+    $email = trim($_POST["E-mail"]);
     $password = $_POST["Password"];
     $confirm_password = $_POST["Cpassword"];
     $birthday = $_POST["Data"];

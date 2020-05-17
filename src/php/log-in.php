@@ -47,9 +47,13 @@ if(empty($username_or_email) || empty($password)){
                 session_start();
                 $_SESSION['username'] = $row["username"];
                 $_SESSION['success'] = "You are now logged in.";
+                try {
                 $myfile = fopen("logged_in.txt", "a");
                 $mytext = "User: ".$row["username"]. " logged in on: " . date("d/m/Y") ." at: ". date("h:i:sa") ."\n"; 
-                fwrite($myfile, $mytext);
+                fwrite($myfile, $mytext);}
+                catch(Exception $e){
+                    $_SESSION["error"]= "Logged in not registered!";
+                }
                 header('location: ../../index.php?login=success');
                 exit();
 
