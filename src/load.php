@@ -1,7 +1,7 @@
 <?php
-	include 'connection.php';
+	require_once("php/mysql_conncect.php");
 	$sql = "SELECT * FROM user_data";
-	$result = $conn->query($sql);
+	$result = $connection->query($sql);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 ?>	
@@ -18,6 +18,6 @@
 	else {
 		echo "Nuk eshte gjetur asnje rezultat!";
 	}
-	mysqli_close($conn);
+	mysqli_close($connection);
 ?>
  

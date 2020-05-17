@@ -7,7 +7,6 @@ if(isset($_POST["setcookie"])){
     $cookie_name1 = "password";
     $cookie_value1 = $_POST["Password"];
     setcookie($cookie_name1, $cookie_value1, time() + 86400*15, "/");
-    require_once("mysql_connect.php");
 }
 
 
