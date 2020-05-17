@@ -32,7 +32,7 @@
      
       <?php         if(isset($_SESSION['sent'])){
                ?>
-               <p style="color:white"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></p>
+               <p style="color:white"><?php echo $_SESSION['sent']; unset($_SESSION['sent']); ?></p>
               <?php } ?>
                 <input type="text" name="name" class="form-control" placeholder="Enter your name" required><br>
                 <input type="email" name="email" class="form-control" placeholder="Enter your email" required><br>
