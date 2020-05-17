@@ -104,6 +104,12 @@ $noraB = new student("170714100032","Noraberisha@gmail.com","Nora Berisha");
 $diellaS = new student("170714100033","Diellasimnica@gmail.com","Diella Simnica");
 
 ?>
+		
+<?php
+$number = 4;
+$str = "in this website";
+printf("There are %u users in %s.",$number,$str);
+?>
 	
 	<div style=" display: flex;
 	flex-direction: column;
