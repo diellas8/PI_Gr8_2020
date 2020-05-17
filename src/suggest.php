@@ -1,5 +1,5 @@
 <?php
-// People Array @TODO - Get from DB
+//Array me Usera
 $people[] = "Nora";
 $people[] = "Diella";
 $people[] = "EndritB";
@@ -42,4 +42,4 @@ if($q !== ""){
 	}
 }
 
-echo $suggestion === "" ? "No Suggestion" : $suggestion;
+echo $suggestion === "" ? "Nuk ka sugjerime!" : $suggestion;
