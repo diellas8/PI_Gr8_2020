@@ -12,7 +12,6 @@ if (isset($_POST['submit'])){
 
 
 
-
     if (empty($first) || (empty($last) (empty($uname) || (empty($email) || (empty($password) || (empty($cpass) || (empty($dl) || (empty($gender) || ){
         header("Location: ../index.php?signup=empty")
 
@@ -25,16 +24,9 @@ if (isset($_POST['submit'])){
         else{
             echo "Sign up the user!";
         }
-
     }
-
 }
 else{
     header("Location: ../index.php?signup=error")
 }
-
-
-
-
-
 ?>
