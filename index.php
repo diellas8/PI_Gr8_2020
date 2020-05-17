@@ -69,7 +69,25 @@ define("LOGO", "CONCOMITANT"); ?>
 						<li><a href="src/gallery.php">GALLERY</a></li>
 						<li><a href="src/contact.php">CONTACT</a></li>
 						<li><a href="src/covid.html">COVID LIVE UPDATE</a></li>
-						<li><input class="button" type="submit" name="submit" value="SEARCH"><input type="text" name="searchbox" placeholder="Search Our Website..." ></li>
+						<script>
+		function showSuggestion(str){
+			if(str.length == 0){
+				document.getElementById('output').innerHTML = '';
+			} else {
+				// AJAX REQ
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function(){
+					if(this.readyState == 4 && this.status == 200){
+						document.getElementById('output').innerHTML = this.responseText;
+					}
+				}
+				xmlhttp.open("GET", "src/suggest.php?q="+str, true);
+				xmlhttp.send();
+			}
+		}
+	</script>
+						<li><input class="button" type="submit" name="submit" value="SEARCH"><input type="text" name="searchbox" onkeyup="showSuggestion(this.value)"; placeholder="Search Our Website..." ></li>
+						<p id="output" style="background-color: white; color:black; margin-left:80%;"> </p>					
 					</ul>
 				</nav>
 			</section>
