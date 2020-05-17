@@ -109,6 +109,11 @@ $diellaS = new student("170714100033","Diellasimnica@gmail.com","Diella Simnica"
 $number = 4;
 $str = "in this website";
 printf("There are %u users in %s.",$number,$str);
+?>		
+<br>
+<?php
+$users = array("scroll", "for", "the", "users");
+echo "You can " . $users[0] . " for " . $users[2] . " " . $users[3] . ".";
 ?>
 	
 	<div style=" display: flex;
