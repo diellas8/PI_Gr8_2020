@@ -20,12 +20,14 @@ $people[] = "Shqipe";
 $people[] = "Haxhi";
 $people[] = "Sevdie";
 
-// Get Query String
+sort($people);
+
+// Merri Query Strings
 $q = $_REQUEST['q'];
 
 $suggestion = "";
 
-// Get Suggestions
+// Merri Suggestions
 if($q !== ""){
 	$q = strtolower($q);
 	$len = strlen($q);
