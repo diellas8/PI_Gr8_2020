@@ -9,6 +9,11 @@
 	{
 		width: 100%;
 	}
+	div#phpclass
+	{
+		color: white;
+		background-color: lightblue;
+	}
 	div#dydtrans
 	{
 		border: 2px solid black;
@@ -59,6 +64,34 @@
 	}
 </style>
 <body>
+<div id="phpclass">
+<?php
+$string = "Projekti ne lenden Programimi ne Internet";
+print_r(explode(' ', $string));
+print_r(explode(' ', $string[15]));
+echo "<br>";
+echo "<br>";
+
+$string1 = "Fakulteti i Inxhinierise Elektrike dhe Kompjuterike. FIEK <br/>";
+$string2 = preg_replace("/Kompjuterike/", '<h4>Kompjuterike</h4>', $string1);
+
+echo $string1;
+
+echo "<br/>";
+
+echo $string2;
+
+$string1_array = preg_split("/ /", $string1);
+
+print_r($string1_array);
+
+$gjatesia = strlen($string1);
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "Gjatesia e tekstit eshte: $gjatesia karaktere!";
+?>
+	</div>
 <div id="dydtrans">Ky eshte nje transformim 2 dimensional</div><br><br><br><br>
 <div id="tredtrans">Ky eshte nje transformim 3D</div><br>
 <div id="resizecss">Resize me ane te cursorit</div>
