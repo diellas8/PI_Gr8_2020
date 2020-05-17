@@ -110,7 +110,7 @@
 		} ?>
 		<form method="POST" action="php/sign-up.php">
 			<fieldset>
-	       
+        <form action="src/exception.php" method="POST">       
 	<label><strong>Emri: </strong></label><br>
 	<input type="name" name="Emri" value= "<?php if(isset($_GET["Emri"])){echo $_GET["Emri"];} ?>"placeholder="Shenoni emrin..." required=""><br>
 	<br><label><strong>Mbiemri: </strong></label><br>
