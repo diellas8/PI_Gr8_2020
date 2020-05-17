@@ -77,7 +77,10 @@
 	<hr>
 	
 	<h2>PORTFOLIO</h2>
-	<p>Resize the browser window to see the responsive effect.</p>
+    <p><?php
+$arr = array('Resize','the browser','window','to', 'see', 'the', 'responsive', 'effect');
+echo implode(" ",$arr);
+    ?></p>
 	
 	
 	<div class="row">
