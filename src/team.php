@@ -67,6 +67,7 @@ define("LOGO","CONCOMITANT" ); ?>
 					<li><a href="./team.php">TEAM</a></li>
 					<li><a href="../src/gallery.php">GALLERY</a></li>
 					<li><a href="../src/contact.php">CONTACT</a></li>
+					<li><a href="src/covid.html">COVID LIVE UPDATE</a></li>
 					<li><input class="button" type="submit" name="submit" value="SEARCH"><input type="text"
 							name="searchbox" placeholder="Search Our Website..."></li>
 				</ul>
